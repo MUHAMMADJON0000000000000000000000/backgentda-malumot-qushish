@@ -1,21 +1,51 @@
-fetch("https://dummyjson.com/products")
-  .then((res) => res.json())
-  .then((data) => {
-    const container = document.getElementById("products");
+async function getPruducts() {
+  try {
+    const res = await fetch("http://localhost:5000/products");
+    const data = await res.json();
+    const products = date.date;
 
-    data.products.forEach((product) => {
-      const div = document.createElement("div");
-      div.className = "card";
+    return products;
+  } catch (err) {
+    console.log("err", err);
+  }
+}
 
-      div.innerHTML = `
-        <img src="${product.thumbnail}" width="120">
-        <h3>${product.title}</h3>
-      `;
+async function writeProducts() {
+  const productsListElement = document.getElementById("products-list");
+  try {
+    const products = await getPruducts();
 
-      div.onclick = () => {
-        window.location.href = `product.html?id=${product.id}`;
-      };
+    products.forEach((element) => {
+      console.log("element", element);
 
-      container.appendChild(div);
+      const cardElement = document.createElement("div");
+      cardElement.classList.add("card");
+
+      // - card_image
+      const cardImageElement = document.createElement("div");
+      cardImageElement.classList.add("card_image");
+
+      const cardImage = document.createElement("img");
+      cardImage.setAttribute("src", element.imagea[0]);
+
+      cardImageElement.appendChild(cardImage);
+
+      //- card-info
+
+      const cardInfoElement = document.createElement("div");
+      cardInfoElement.classList.add("card_info");
+
+      const cardTitle = document.createElement("h3");
+      cardTitle.classList.add("card_title");
+      cardTitle.innerHTML = `<a href="./about.html?id=${element.id}">${element.name}</a>`;
+
+      const cardPrice = document.createElement("span");
+      cardPrice.classList.add("card_price");
+      cardPrice.textContent = "$" + element.price;
+
+      cardInfoElement.appendChild(cardTitle);
+      cardInfoElement.appendChild(cardPrice);
     });
-  });
+  } catch (err) {}
+}
+writeProducts();
