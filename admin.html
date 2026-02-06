@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Admin - Mahsulot Qo'shish</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    form { max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+    input { padding: 10px; font-size: 16px; width: 100%; box-sizing: border-box; }
+    button { padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; }
+    button:hover { background: #0056b3; }
+    .back-link { display: block; margin-bottom: 20px; text-decoration: none; color: #333; }
+  </style>
 </head>
 <body>
-  <form action="">
-    
+  <a href="./index.html" class="back-link">← Bosh sahifaga qaytish</a>
+  
+  <h2 style="text-align: center;">Yangi mahsulot qo'shish</h2>
+
+  <form id="add-product-form">
+    <input type="text" id="name" placeholder="Mahsulot nomi" required>
+    <input type="number" id="price" placeholder="Narxi ($)" required>
+    <input type="file" id="image" placeholder="Rasm URL manzili"  >
+    <button type="submit">Qo'shish</button>
   </form>
+
+  <script src="./admin.js"></script>
 </body>
 </html>

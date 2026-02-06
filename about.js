@@ -15,7 +15,7 @@ async function fetchAPruduce() {
   }
 }
 
-// fetchAPruduce();
+fetchAPruduce();
 
 const name = document.getElementById("name");
 const price = document.getElementById("price");

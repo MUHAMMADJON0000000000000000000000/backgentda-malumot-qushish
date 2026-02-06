@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tahrirlash</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      input {
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px;
+        background: #ffc107;
+        color: black;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      button:hover {
+        background: #e0a800;
+      }
+      .back-link {
+        display: block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./index.html" class="back-link">← Bosh sahifaga qaytish</a>
+
+    <h2 style="text-align: center">Mahsulotni tahrirlash</h2>
+
+    <form id="update-product-form">
+      <input type="text" id="name" placeholder="Mahsulot nomi" required />
+      <input type="number" id="price" placeholder="Narxi ($)" required />
+      <input type="image" id="image" placeholder="Rasm URL manzili" required />
+      <button type="submit">Yangilash</button>
+    </form>
+
+    <script src="./update.js"></script>
+  </body>
+</html>
